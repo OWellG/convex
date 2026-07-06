@@ -1,8 +1,14 @@
 import convexPlugin from "@convex-dev/eslint-plugin";
 import { defineConfig, globalIgnores } from "eslint/config";
+import tseslint from 'typescript-eslint';
+import js from '@eslint/js';
 export default defineConfig([
+    ...tseslint.configs.recommended,
     globalIgnores(["convex/_generated"]),
-    // Other configurations
+    {
+        files: ["**/*.{ts,tsx,js,jsx}"],
+        extends: [js.configs.recommended, tseslint.configs.recommended],
+    },
 
     ...convexPlugin.configs.recommended,
 ]); 
