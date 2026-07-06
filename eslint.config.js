@@ -3,7 +3,6 @@ import { defineConfig, globalIgnores } from "eslint/config";
 import tseslint from 'typescript-eslint';
 import js from '@eslint/js';
 export default defineConfig([
-    ...tseslint.configs.recommended,
     globalIgnores(["convex/_generated"]),
     {
         files: ["**/*.{ts,tsx,js,jsx}"],
